@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "140257401768",
+    "firebase_url": "https://vehisafe.firebaseio.com",
+    "project_id": "vehisafe",
+    "storage_bucket": "vehisafe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140257401768:android:9510c715188310c4",
+        "android_client_info": {
+          "package_name": "com.example.abhishek.vehisafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140257401768-h36kurn6pliclfi0ko777hsl162s0430.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.abhishek.vehisafe",
+            "certificate_hash": "5aa316576fe70fec23eb76cc33ce5cf8e77a92e0"
+          }
+        },
+        {
+          "client_id": "140257401768-fg9btqnau67dkrl9odpuopn0vkk478ks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDOOu6lBzfuCsmDZjVTnKffu4eNlFCT8o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140257401768-fg9btqnau67dkrl9odpuopn0vkk478ks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
