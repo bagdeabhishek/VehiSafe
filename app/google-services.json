@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "140257401768-dq2uesu792pl5ce4jsrp46ebrlk7quer.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.abhishek.vehisafe",
+            "certificate_hash": "7ad37209cb2ca713aab8e1388297b5ce959ae9c6"
+          }
+        },
+        {
           "client_id": "140257401768-h36kurn6pliclfi0ko777hsl162s0430.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

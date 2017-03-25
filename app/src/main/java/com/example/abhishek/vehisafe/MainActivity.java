@@ -10,6 +10,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Arrays;
+
 //import com.firebase.ui.auth.AuthUI;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
@@ -18,15 +24,41 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
     public static final int RC_SIGN_IN =1 ;
-//    private FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth mAuth;
     private String AuthUser=null;
-//    private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseUser user= null;
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mAuth.removeAuthStateListener(mAuthListener);
+    }
+    protected void onResume(){
+        super.onResume();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                user=firebaseAuth.getCurrentUser();
+            }
+        };
+        AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setProviders(Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
+                        new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
+                        new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build(),
+                        new AuthUI.IdpConfig.Builder(AuthUI.TWITTER_PROVIDER).build()))
+                .build(),
+                RC_SIGN_IN);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
 
@@ -62,4 +94,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
